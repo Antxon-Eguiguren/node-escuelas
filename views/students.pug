@@ -1,0 +1,23 @@
+extends layout.pug
+block content
+
+    div.container
+
+        h1 Listado de Estudiantes
+
+        table.table
+            thead.thead-dark
+                tr
+                    th Nombre
+                    th Apellido
+                    th Edad
+                    th Email
+                    th Número de Matrícula
+                
+            each student in students
+                tr
+                    td= student.nombre
+                    td= student.apellido
+                    td= student.edad
+                    td= student.email
+                    td= student.numMat
