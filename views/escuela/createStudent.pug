@@ -11,8 +11,8 @@ block content
                 input(type="text" name="nombre").form-control
 
             div.form-group
-                label Apellido
-                input(type="text" name="apellido").form-control
+                label Apellidos
+                input(type="text" name="apellidos").form-control
 
             div.form-group
                 label Edad
@@ -23,8 +23,27 @@ block content
                 input(type="email" name="email").form-control
 
             div.form-group
+                label Nota Media
+                input(type="text" name="notamedia").form-control
+
+            div.form-group
+                label Fecha de Matriculación
+                input(type="date" name="fecha_matricula").form-control
+
+            div.form-group
                 label Número de Matrícula
-                input(type="text" name="numMat").form-control
+                input(type="text" name="matricula").form-control
+
+            div.form-group
+                label Discapacidad
+                input(type="text" name="discapacidad").form-control
+
+            div.form-group
+                label Sexo
+                select.custom-select
+                    option(selected='') Selecciona una opción
+                    option(value='M') Masculino
+                    option(value='F') Femenino
 
             div.form-group
                 input(type="submit" value="Crear Estudiante").btn.btn-primary
