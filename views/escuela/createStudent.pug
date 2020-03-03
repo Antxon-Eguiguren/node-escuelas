@@ -1,0 +1,35 @@
+extends ../layout.pug
+block content
+
+    div.container
+
+        h1 Formulario Nuevo Estudiante
+
+        form(action="/students/create" method="post")
+            div.form-group
+                label Nombre
+                input(type="text" name="nombre").form-control
+
+            div.form-group
+                label Apellido
+                input(type="text" name="apellido").form-control
+
+            div.form-group
+                label Edad
+                input(type="text" name="edad").form-control
+
+            div.form-group
+                label Email
+                input(type="email" name="email").form-control
+
+            div.form-group
+                label Número de Matrícula
+                input(type="text" name="numMat").form-control
+
+            div.form-group
+                input(type="submit" value="Crear Estudiante").btn.btn-primary
+
+            
+        div.botones
+            button.btn.btn-primary
+                a(href="http://localhost:3000/students/") Volver

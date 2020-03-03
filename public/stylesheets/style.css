@@ -10,3 +10,11 @@ a {
 h1 {
   padding-bottom: 50px;
 }
+
+a {
+  color: white!important;
+}
+
+.botones {
+  margin-top: 20px;
+}

@@ -1,0 +1,31 @@
+extends ../layout.pug
+block content
+
+    div.container
+
+        h1 Borrar Estudiantes
+
+        table.table
+            thead.thead-dark
+                tr
+                    th Nombre
+                    th Apellido
+                    th Edad
+                    th Email
+                    th Número de Matrícula
+                    th Acción
+                
+            each student in students
+                tr
+                    td= student.nombre
+                    td= student.apellido
+                    td= student.edad
+                    td= student.email
+                    td= student.numMat
+                    td
+                        button.btn.btn-danger
+                            a(href="http://localhost:3000/students/") Borrar Estudiante
+
+        div.botones
+            button.btn.btn-primary
+                a(href="http://localhost:3000/students/") Volver a Inicio

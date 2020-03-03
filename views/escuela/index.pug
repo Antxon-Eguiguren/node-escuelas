@@ -1,4 +1,4 @@
-extends layout.pug
+extends ../layout.pug
 block content
 
     div.container
@@ -21,3 +21,10 @@ block content
                     td= student.edad
                     td= student.email
                     td= student.numMat
+
+        div.botones
+            button.btn.btn-primary
+                a(href="http://localhost:3000/students/new") Crear Nuevo Estudiante
+        div.botones
+            button.btn.btn-primary
+                a(href="http://localhost:3000/students/edit") Editar Estudiantes
