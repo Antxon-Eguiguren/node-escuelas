@@ -8,19 +8,29 @@ block content
         table.table
             thead.thead-dark
                 tr
+                    th Id
                     th Nombre
                     th Apellido
                     th Edad
                     th Email
-                    th Número de Matrícula
+                    th Nota Media
+                    th Fecha Matricula
+                    th Matricula
+                    th Discapacidad
+                    th Sexo
                 
-            each student in students
+            each row in rows
                 tr
-                    td= student.nombre
-                    td= student.apellido
-                    td= student.edad
-                    td= student.email
-                    td= student.numMat
+                    td= row.id
+                    td= row.nombre
+                    td= row.apellidos
+                    td= row.edad
+                    td= row.email
+                    td= row.notamedia
+                    td= row.fecha_matricula
+                    td= row.matricula
+                    td= row.discapacidad
+                    td= row.sexo
 
         div.botones
             button.btn.btn-primary

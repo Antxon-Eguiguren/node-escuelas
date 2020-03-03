@@ -1,33 +1,14 @@
 var express = require('express');
 var router = express.Router();
+const moment = require('moment');
 
-const students = [
-    {
-        nombre: 'Antxon',
-        apellido: 'Eguiguren',
-        edad: 34,
-        email: 'antxon@gmail.com',
-        numMat: '1234A'
-    },
-    {
-        nombre: 'Julia',
-        apellido: 'Besada',
-        edad: 30,
-        email: 'julia@gmail.com',
-        numMat: '4321B'
-    },
-    {
-        nombre: 'Aitziber',
-        apellido: 'Redondo',
-        edad: 31,
-        email: 'aitziber@gmail.com',
-        numMat: '2244C  '
-    }
-];
+
+const Alumno = require('../models/alumno');
 
 // GET http://localhost:3000/students
-router.get('/', (req, res) => {
-    res.render('../views/escuela/index', { students });
+router.get('/', async (req, res) => {
+    const rows = await Alumno.getAll();
+    res.render('../views/escuela/index', { rows });
 });
 
 // GET http://localhost:3000/students/new
