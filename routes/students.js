@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 // GET http://localhost:3000/students/new
 router.get('/new', (req, res) => {
-    res.render('../views/escuela/createStudent');
+    res.render('../views/escuela/new');
 });
 
 // GET http://localhost:3000/students/delete/:studentId
