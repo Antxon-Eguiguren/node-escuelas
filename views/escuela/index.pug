@@ -18,19 +18,23 @@ block content
                     th Matricula
                     th Discapacidad
                     th Sexo
+                    th Acciones
                 
-            each row in rows
+            each student in students
                 tr
-                    td= row.id
-                    td= row.nombre
-                    td= row.apellidos
-                    td= row.edad
-                    td= row.email
-                    td= row.notamedia
-                    td= row.fecha_matricula
-                    td= row.matricula
-                    td= row.discapacidad
-                    td= row.sexo
+                    td= student.id
+                    td= student.nombre
+                    td= student.apellidos
+                    td= student.edad
+                    td= student.email
+                    td= student.notamedia
+                    td= student.fecha_matricula
+                    td= student.matricula
+                    td= student.discapacidad
+                    td= student.sexo
+                    td
+                        a.btn.btn-sm.btn-primary(href="/students/"+student.id) Detalle Estudiante
+                        a.btn.btn-sm.btn-danger(href="students/delete/"+student.id) Borrar Estudiante
 
         div.botones
             button.btn.btn-primary

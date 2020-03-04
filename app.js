@@ -8,6 +8,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const studentsRouter = require('./routes/students');
 
+// Permite usar las variables de entorno
+require('dotenv').config();
+
 var app = express();
 
 // Nos conectamos a la BBDD

@@ -1,0 +1,40 @@
+extends ../layout.pug
+block content
+
+    div.container
+
+        if student
+
+            h1 Ficha de Estudiante: #{student.nombre} #{student.apellidos}
+
+            table.table
+                thead.thead-dark
+                    tr
+                        th Id
+                        th Nombre
+                        th Apellidos
+                        th Edad
+                        th Email
+                        th Nota Media
+                        th Fecha Matricula
+                        th Matricula
+                        th Discapacidad
+                        th Sexo
+                    
+                    tr
+                        td= student.id
+                        td= student.nombre
+                        td= student.apellidos
+                        td= student.edad
+                        td= student.email
+                        td= student.notamedia
+                        td= student.fecha_matricula
+                        td= student.matricula
+                        td= student.discapacidad
+                        td= student.sexo     
+        else
+            p No existe ningún alumno con el ID #{id}
+
+        div.botones
+            button.btn.btn-primary
+                a(href="http://localhost:3000/students/") Volver
