@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const moment = require('moment');
 
 const Student = require('../models/student');
 
@@ -7,6 +8,12 @@ const Student = require('../models/student');
 router.get('/', async (req, res) => {
     try {
         const rows = await Student.getAll();
+        for (row of rows) {
+            row.fecha_matricula = moment(row.fecha_matricula).format('DD/MM/YYYY');
+            if (row.sexo === 'M') {
+                row.sexo = 'Masculino'
+            } else row.sexo = 'Femenino'
+        }
         res.render('../views/escuela/index', { students: rows });
     }
     catch (err) {
