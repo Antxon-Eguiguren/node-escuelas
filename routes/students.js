@@ -9,10 +9,7 @@ router.get('/', async (req, res) => {
     try {
         const rows = await Student.getAll();
         for (row of rows) {
-            row.fecha_matricula = moment(row.fecha_matricula).format('DD/MM/YYYY');
-            if (row.sexo === 'M') {
-                row.sexo = 'Masculino'
-            } else row.sexo = 'Femenino'
+            row = formatearDatos(row);
         }
         res.render('../views/escuela/index', { students: rows });
     }
@@ -39,6 +36,7 @@ router.get('/delete/:studentId', (req, res) => {
 router.get('/:studentId', (req, res) => {
     Student.getById(req.params.studentId)
         .then(row => {
+            row = formatearDatos(row);
             res.render('../views/escuela/details', { student: row, id: req.params.studentId });
         })
         .catch(err => {
@@ -66,5 +64,15 @@ router.post('/create', async (req, res) => {
         console.log(err);
     }
 });
+
+// Funciones de apoyo
+
+function formatearDatos(pStudent) {
+    pStudent.fecha_matricula = moment(pStudent.fecha_matricula).format('DD/MM/YYYY');
+    if (pStudent.sexo === 'M') {
+        pStudent.sexo = 'Masculino'
+    } else pStudent.sexo = 'Femenino'
+    return pStudent;
+}
 
 module.exports = router;
