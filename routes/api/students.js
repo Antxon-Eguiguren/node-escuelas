@@ -3,10 +3,16 @@ const router = express.Router();
 const moment = require('moment');
 
 const Student = require('../../models/student');
+const middlewares = require('../middlewares');
+
+router.use(middlewares.checkToken);
+router.use(middlewares.registerAction);
 
 // GET http://localhost:3000/api/students
 // Devolvemos un JSON con todos los estudiantes de la BD
 router.get('/', async (req, res) => {
+    // Tenemos disponible la variable payload porque la hemos guardado en la petición del middleware
+    console.log(req.payload);
     const rows = await Student.getAll();
     for (row of rows) {
         row = formatearDatos(row);
@@ -46,7 +52,6 @@ router.delete('/', async (req, res) => {
 });
 
 // Funciones de apoyo
-
 function formatearDatos(pStudent) {
     pStudent.fecha_matricula = moment(pStudent.fecha_matricula).format('DD/MM/YYYY');
     if (pStudent.sexo === 'M') {

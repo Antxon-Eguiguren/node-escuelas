@@ -45,13 +45,13 @@ router.post('/login', async (req, res) => {
     try {
         const user = await User.emailExists(req.body.email);
         if (user === null) {
-            return res.json({ error: 'Error en email y/o password' });
+            return res.status(401).json({ error: 'Error en email y/o password' });
         }
-        const iguales = bcrypt.compareSync(req.body.password, user.password);
-        if (iguales) {
+        const passwordIguales = bcrypt.compareSync(req.body.password, user.password);
+        if (passwordIguales) {
             res.json({ success: createToken(user) });
         }
-        else res.json({ error: 'Error en email y/o password' });
+        else res.status(401).json({ error: 'Error en email y/o password' });
     }
     catch (err) {
         console.log(err);
@@ -59,7 +59,6 @@ router.post('/login', async (req, res) => {
 })
 
 // Funciones de apoyo
-
 const createToken = (pUser) => {
     const payload = {
         usuarioId: pUser.id,
